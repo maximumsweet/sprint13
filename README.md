@@ -1,2 +1,3 @@
-# sprint13
-Node.js REST, API, Express.js, MongoDB
+# Проектная работа 13 
+## v0.0.1
+Данная проектная работа предназначена для оттачивания навыков с работой Node.js, API, Express.js, MongoDB.
