@@ -8,8 +8,14 @@ module.exports.getUsers = (req, res) => {
 
 module.exports.getUser = (req, res) => {
   userModel.findById(req.params.id)
-    .then((user) => res.status(200).send({ data: user }))
-    .catch(() => res.status(404).send({ message: 'Нет пользователя с таким id' }));
+    .then((user) => {
+      if (!user) {
+        res.status(404).send({ message: 'Нет пользователя с таким id' });
+      } else {
+        res.status(200).send({ data: user });
+      }
+    })
+    .catch((err) => res.status(500).send({ message: err.message }));
 };
 
 module.exports.createUser = (req, res) => {
