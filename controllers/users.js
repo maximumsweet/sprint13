@@ -17,5 +17,5 @@ module.exports.createUser = (req, res) => {
 
   userModel.create({ name, about, avatar })
     .then((user) => res.status(200).send({ data: user }))
-    .catch((err) => ((err.name === 'ValidationError') ? res.status(400).send({ message: 'Ошибка валидации' }) : res.status(500).send({ message: 'Произошла ошибка' })));
+    .catch((err) => ((err.name === 'ValidationError') ? res.status(400).send({ message: err.message }) : res.status(500).send({ message: 'Произошла ошибка' })));
 };
