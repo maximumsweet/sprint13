@@ -29,7 +29,7 @@ app.use('/', routerCards);
 app.use('/', routerUsers);
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).send({ message: 'Запрашиваемый ресурс не найден' });
 });
 
